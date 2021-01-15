@@ -50,3 +50,82 @@ let size: Size = Size(width: 50.0, height: 50.0)
 let somePoint: Point = Point()
 let someSize: Size = Size(width: 50)
 let anotherPoint: Point = Point(y: 100)
+
+//-------------------------------------------------
+// 초기화 위임
+enum Student {
+    case elementary, middle, high
+    case none
+    
+    // 사용자 정의 이니셜라이저가 있는 경우,
+    // init() 메서드를 구현해주어야 기본 이니셜라이저를 사용할 수 있습니다.
+    init() {
+        self = .none
+    }
+    
+    init(koreanAge: Int) {
+        switch koreanAge {
+        case 8...13:
+            self = .elementary
+        case 14...16:
+            self = .middle
+        case 17...19:
+            self = .high
+        default:
+            self = .none
+        }
+    }
+    
+    init(bornAt: Int, currentYear: Int) {
+        self.init(koreanAge: currentYear - bornAt + 1)
+    }
+}
+
+var younger: Student = Student(koreanAge: 16)
+print(younger)  // middle
+
+younger = Student(bornAt: 2003, currentYear: 2021)
+print(younger)  // high
+
+//-------------------------------------------------------
+// 실패 가능한 이니셜라이저
+
+class Person {
+    let name: String
+    var age: Int?
+    
+    init?(name: String) {
+        
+        if name.isEmpty {
+            return nil
+        }
+        self.name = name
+    }
+    
+    init?(name: String, age: Int) {
+        if name.isEmpty || age < 0 {
+            return nil
+        }
+        self.name = name
+        self.age = age
+    }
+}
+
+let eunseo: Person? = Person(name: "eunseo", age: 20)
+
+if let person: Person = eunseo {
+    print(person.name)
+} else {
+    print("Person wasn't initalized")
+}
+// eunseo
+
+let chope: Person? = Person(name: "chope",age: -10)
+
+if let person: Person = chope {
+    print(person.name)
+} else {
+    print("Person wasn't initalized")
+}
+// Person wasn't initalized
+// age < 0 이므로 초기화가 되지 않음
