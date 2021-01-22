@@ -52,7 +52,7 @@ if let roomNumber: Int = eunseo.address?.building?.room?.number {
 
 // 옵셔널 체이닝을 통한 값 할당
 eunseo.address?.building?.room?.number = 505
-// eunseo의 address 프로퍼티가 없으며 buildiong 프로퍼티도 room 프로퍼티도 없으므로 옵셔널 체이닝 동작 도중에 중지됨
+// eunseo의 address 프로퍼티가 없으며 building 프로퍼티도 room 프로퍼티도 없으므로 옵셔널 체이닝 동작 도중에 중지됨
 // number 프로퍼티는 존재조차 하지 않으므로 따라서 505가 할당되지 않음
 print(eunseo.address?.building?.room?.number)   // nil
 
