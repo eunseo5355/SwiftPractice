@@ -84,6 +84,7 @@ optionalCasted = jina as? Student   // nil
 // 강제 다운 캐스팅 // as!
 var forcedCasted: Student
 forcedCasted = mike as! UniversityStudent
+
 // forcedCasted = jenny as! UniversityStudent    // 런타임 오류
 // forcedCasted = jina as! UniversityStudent // 런타임 오류
 // forcedCasted = jina as! Student   // 런타임 오류
