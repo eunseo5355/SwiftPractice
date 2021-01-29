@@ -179,7 +179,7 @@ protocol 프로토콜 이름: 부모 프로토콜 이름 목록 {
 
 다음은 프로토콜 상속에 대한 예제입니다.
 
-```
+```Swift
 protocol Readable {
     func read()
 }
