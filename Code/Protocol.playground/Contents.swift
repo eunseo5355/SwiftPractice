@@ -75,12 +75,18 @@ struct SomeType: ReadWriteSpeakable {
 // 클래스 상속과 프로토콜
 // 상속받으려는 클래스 먼저 명시한 후 채택할 프로토콜 목록 작성
 class SuperClass: Readable {
-    func read() { }
+    func read() {
+        print("read")
+    }
 }
 
 class SubClass: SuperClass, Writeable, ReadSpeakable {
-    func write() { }
-    func speak() { }
+    func write() {
+        print("write")
+    }
+    func speak() {
+        print("speak")
+    }
 }
 
 // 프로토콜 준수 확인
@@ -102,6 +108,9 @@ if let someReadSpeakable: ReadSpeakable = someAny as? ReadSpeakable {
     someReadSpeakable.speak()
 }   // 동작하지 않음
 someAny = sub
+if let someWriteable: Writeable = someAny as? Writeable {
+    someWriteable.write()
+}   // wrtie
 if let someReadable: Readable = someAny as? Readable {
     someReadable.read()
 }   // read
