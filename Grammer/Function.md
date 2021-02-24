@@ -20,7 +20,7 @@ func greet(name: String) -> String {
     return greeting
 }
 
-let helloJenny: Sting = greet(name: "Jenny")
+let helloJenny: String = greet(name: "Jenny")
 print(helloJenny) // Hello, Jenny!
 ```
 
@@ -102,7 +102,7 @@ print(helloWorld()) // Hello, world
 호출 시에는 매개변수 이름(Parameter Name)을 붙여주고 콜론(:)을 적어준 후 전달인자를 보내줍니다.
 
 ```Swift
-func greeting(myName: String, yourName: Sting) -> String {
+func greeting(myName: String, yourName: String) -> String {
 	return "Hello \(yourName)! I'm \(myName)"
 }
 
@@ -127,7 +127,7 @@ func 함수 이름(전달인자 레이블 매개변수1이름: 매개변수1타�
 ```Swift
 // from과 to라는 전달인자 레이블이 있으며
 // myName과 name이라는 매개변수 이름이 있는 함수 
-func greeting(from myName: String, to name: Sting) -> String {
+func greeting(from myName: String, to name: String) -> String {
 	return "Hello \(name)! I'm \(myName)"
 }
 
@@ -141,7 +141,7 @@ print(greeting(from: "Anna", to: "Tim")) // Hello Tim! I'm Anna
 다음은 와일드카드 식별자(\_)를 사용하여 전달인자 레이블을 사용하지 않는 함수를 구현한 것입니다.
 
 ```Swift
-func greeting(_ name: Sring, _ alreadyGreeted: Bool) -> String {
+func greeting(_ name: String, _ alreadyGreeted: Bool) -> String {
 	if alreadyGreeted {
     	return "Hello again, " + name + "!"
     } else {
@@ -160,7 +160,7 @@ func greeting(_ name: Sring, _ alreadyGreeted: Bool) -> String {
 
 ```Swift
 // alreadyGreeted 매개변수가 기본값 false를 갖음
-func greeting(_ name: Sring, _ alreadyGreeted: Bool = false) -> String {
+func greeting(_ name: String, _ alreadyGreeted: Bool = false) -> String {
 	if alreadyGreeted {
     	return "Hello again, " + name + "!"
     } else {
